@@ -14,8 +14,8 @@ function displayWeatherhtml(day, index) {
 
 //fonction qui retourne le tableau avec les noms des jours en fonction de la langue
 function getWeekDays(locale) {
-  var baseDate = new Date(Date.UTC(2017, 0, 2)); // just a Monday
-  var weekDays = [];
+  let baseDate = new Date(Date.UTC(2017, 0, 2)); // just a Monday
+  let weekDays = [];
   for (i = 0; i < 7; i++) {
     weekDays.push(baseDate.toLocaleDateString(locale, { weekday: "long" }));
     baseDate.setDate(baseDate.getDate() + 1);
