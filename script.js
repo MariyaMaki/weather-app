@@ -12,6 +12,12 @@ function displayWeatherhtml(day, index) {
   document.querySelector("#dayOfWeek").appendChild(div);
 }
 
+//fonction qui nettoie le tableau de données
+function clear() {
+  let dayOfWeek = document.querySelector("#dayOfWeek");
+  dayOfWeek.innerHTML = "";
+}
+
 //fonction qui retourne le tableau avec les noms des jours en fonction de la langue
 function getWeekDays(locale) {
   let baseDate = new Date(Date.UTC(2017, 0, 2)); // just a Monday
@@ -83,6 +89,7 @@ const btn_search = document.getElementById("btn_search");
 btn_search.addEventListener("click", async () => {
   try {
     let data = await apiCallWeatherAPI();
+    clear();
     for (let i = 0; i < 5; i++) {
       displayWeatherhtml(data.daily[i], i);
     }
@@ -96,6 +103,7 @@ document.addEventListener("keyup", async (e) => {
   if (e.key === "Enter") {
     try {
       let data = await apiCallWeatherAPI();
+      clear();
       for (let i = 0; i < 5; i++) {
         displayWeatherhtml(data.daily[i], i);
       }
