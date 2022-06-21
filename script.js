@@ -2,7 +2,7 @@ const apikey = `29ce1736788c172d0887ac281f088845`;
 
 //fonction pour avoir les 5 éléments de l'app
 function displayWeatherhtml(day, index) {
-  let logoUrl = `http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
+  let logoUrl = `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
   let dayName = getDayName(index);
   const div = document.createElement("div");
   div.innerHTML = `<span class="jour">${dayName}</span>
@@ -49,7 +49,7 @@ function getCityName() {
 //fonction pour avoir la latitude et la longitude
 async function getLatLonFromCity(city) {
   try {
-    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=29ce1736788c172d0887ac281f088845`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=29ce1736788c172d0887ac281f088845`;
     let response = await fetch(url);
     let data = await response.json();
 
